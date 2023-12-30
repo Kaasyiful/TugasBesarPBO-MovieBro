@@ -106,7 +106,7 @@ class Ruang(Tingkatan):
 		self.tipeRuang(tingkat)
 		self.bdruang = "Cabang" + str(urcab+1) + '_' + str(self.__urutan + 1) + '_' + Aset.daftari[hari] + '_' + str(Aset.jadwal[waktu].strftime('%H'))
 		
-		if self.tampiltingkat() == 'Premium':
+		if self.tampilTingkat() == 'Premium':
 			tunjuk.execute(f"CREATE TABLE IF NOT EXISTS {self.bdruang} ({Aset.id_tabel}, {Aset.def_kolom_premium})")
 			for i in range(self._baris):
 				tunjuk.execute(f"INSERT INTO {self.bdruang} {Aset.kolom_premium} VALUES (%s, %s, %s, %s, %s, %s)", Aset.isi_premium)
@@ -164,7 +164,8 @@ class Tempat(Ruang):
 				for k in range(len(Aset.jadwal)):
 					acak = randint(0, Aset.idFilm-1)
 					self._studio[i][j][k].film = Aset.dafilm[acak]
-	'''			
+	
+	'''
 	def tataStudio(self, tingkat):
 		self.Studio()
 		for i in range(self.__jumlah):
@@ -332,7 +333,7 @@ class Tiket(Film, Tempat):
 		print("=====================================")
 			
 	def pembayaran(self):
-		print("\nKeseluruhan biaya\t:", self.Uang(self.tampilHari()))
+		print("\nKeseluruhan biaya\t:", self.Uang(self.tampilHari()) * self.banyak)
 		uang = int(input("Uang yang disetor\t: "))
 		kembalian = uang - self.Uang(self.tampilHari())
 		while kembalian < 0:
