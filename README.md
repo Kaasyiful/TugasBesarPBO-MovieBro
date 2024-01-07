@@ -9,10 +9,14 @@ MOVIEBRO adalah sebuah program pemesanan tiket bioskop yang dikembangkan dengan 
 
 #### Langkah alternatif:
 - Jika langkah di atas tidak dapat dijalankan, maka buatlah sebuah skema/basis data bernama 'bioskop' di server MySQL anda.
-- Setelah itu, pada file kode (TugasBesarPBO.py), hapus tanda pagar (#) pada kode berikut:
-  - #Cabang1.tataStudio(Reguler)
-  - #Cabang2.tataStudio(Reguler)
-  - #Cabang3.tataStudio(Premium)
+- Setelah itu, pada file kode (TugasBesarPBO.py), hapus tanda pagar (`#`) pada kode berikut:
+
+```python
+#Cabang1.tataStudio(Reguler)
+#Cabang2.tataStudio(Reguler)
+#Cabang3.tataStudio(Premium)
+```
+
 - Kemudian, jalankan aplikasi. (Jika anda memakai Visual Studio, anda dapat menjalankan file .sln. Jika tidak, maka anda jalankan file kode .py)
 - Tunggu sampai setelah seluruh tabel terbuat (ditandai dengan munculnya output "Selamat datang di aplikasi pemesanan Tiket Bioskop"), kemudian akhiri aplikasi.
 - Tulis kembali tanda pagar di baris yang disebutkan.
