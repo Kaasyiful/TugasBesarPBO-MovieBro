@@ -101,7 +101,6 @@ class Ruang(Tingkatan):
 	def tetapkanKursi(self, baris, kolom):
 		tunjuk.execute(f"UPDATE {self.bdruang} SET {kolom} = {1} WHERE id = {baris}")
 
-	'''
 	def tataRuang(self, urcab, tingkat, hari, waktu):
 		self.tipeRuang(tingkat)
 		self.bdruang = "Cabang" + str(urcab+1) + '_' + str(self.__urutan + 1) + '_' + Aset.daftari[hari] + '_' + str(Aset.jadwal[waktu].strftime('%H'))
@@ -115,7 +114,6 @@ class Ruang(Tingkatan):
 			for i in range(self._baris):
 				tunjuk.execute(f"INSERT INTO {self.bdruang} {Aset.kolom_reguler} VALUES (%s, %s, %s, %s, %s, %s, %s)", Aset.isi_reguler)
 		basis.commit()
-	'''
 	
 #Kelas yang berisikan tempat bioskop, yang merupakan turunan dari ruang yang dimiliknya
 #Kelas Tempat memiliki properti 
@@ -165,14 +163,12 @@ class Tempat(Ruang):
 					acak = randint(0, Aset.idFilm-1)
 					self._studio[i][j][k].film = Aset.dafilm[acak]
 	
-	'''
 	def tataStudio(self, tingkat):
 		self.Studio()
 		for i in range(self.__jumlah):
 			for j in range(len(Aset.daftari)):
 				for k in range(len(Aset.jadwal)):
 					self._studio[i][j][k].tataRuang(self.__id, tingkat, j, k)
-	'''
 					
 	#metode untuk menampilkan properti (privat) dari suatu Tempat
 	def tampilNama(self): return self.__nama
